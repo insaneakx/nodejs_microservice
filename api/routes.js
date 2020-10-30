@@ -2,7 +2,7 @@
 
 const controller = require('./controller');
 
-module.exports = function(app) {
+module.exports = (app) => {
    app.route('/about')
        .get(controller.about);
    app.route('/distance/:zipcode1/:zipcode2')
