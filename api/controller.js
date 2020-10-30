@@ -12,6 +12,7 @@ const controllers = {
 
         res.json(aboutInfo);
     },
+    
     getDistance: (req, res) => {
         distance.find(req, res, (err, dist) => {
             if (err) {
