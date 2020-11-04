@@ -1,9 +1,18 @@
 'use strict';
 
-const properties = require('../package.json')
+const properties = require('../package.json');
 const distance = require('../service/distance');
+const statetozip = require('../service/statetozip');
 
 const controllers = {
+    home: (req, res) => {
+        const info = {
+            msg: 'You are on homepage'
+        }
+
+        res.json(info);
+    },
+
     about: (req, res) => {
         const aboutInfo = {
             name: properties.name,
@@ -22,6 +31,16 @@ const controllers = {
             res.json(dist);
         });
     },
+
+    getStateToZip: (req, res)  => {
+        statetozip.get(req, res, (err, state) => {
+            if (err) {
+                res.send(err);
+            }
+
+            res.json(res);
+        });
+    }
 };
 
 module.exports = controllers;
